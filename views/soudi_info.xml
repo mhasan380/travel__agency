@@ -1,0 +1,80 @@
+<odoo>
+<data>
+       <record model="ir.ui.view" id="soudi_form_view">
+            <field name="name">soudi.form</field>
+            <field name="model">soudi.info</field>
+            <field name="arch" type="xml">
+                <form string="Soudi info Form">
+                    <sheet>
+                       <group col="4" colspan="4"
+                                       name="soudi_detail">
+                           <field name="name"/>            
+                           <field name="contact_nbr"/>
+                           <field name="monajjem_nbr"/>
+                           <field name="iban_no"/> 
+                           <field name="moktob_info"/>
+                           <field name="moktob_no"/>
+                           <field name="haji_nbr"/>
+                           <field name="hajj_year"/>
+                           
+                           
+                                </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+       
+        
+        <record model="ir.ui.view" id="soudi_search_view">
+            <field name="name">soudi.search</field>
+            <field name="model">soudi.info</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>            
+                    <field name="hajj_year"/>
+                    <field name="moktob_no"/>
+                    
+                </search>
+            </field>
+        </record>
+        
+         <record model="ir.ui.view" id="soudi_tree_view">
+            <field name="name">soudi.tree</field>
+            <field name="model">soudi.info</field>
+            <field name="arch" type="xml">
+                <tree string="Soudi info Tree">
+                           <field name="name"/>            
+                           <field name="contact_nbr"/>
+                           <field name="monajjem_nbr"/>
+                           <field name="iban_no"/> 
+                           <field name="moktob_info"/>
+                           <field name="moktob_no"/>
+                           <field name="haji_nbr"/>
+                           <field name="hajj_year"/>
+                    
+                </tree>
+            </field>
+        </record>
+        
+        
+        
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+        <record model="ir.actions.act_window" id="soudi_info_list_action">
+            <field name="name">Tickets</field>
+            <field name="res_model">soudi.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Enter Saudi Information Here
+                </p>
+            </field>
+        </record>
+         
+   </data>    
+        
+</odoo>

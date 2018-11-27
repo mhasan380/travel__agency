@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="kanban_view_hajj" model="ir.ui.view">
+            <field name="name">Hajj Kanban</field>
+            <field name="model">op.haji</field>
+            <field name="arch" type="xml">
+                <kanban class="o_res_partner_kanban">
+                    <field name="id"/>
+                    <field name="image"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click o_res_partner_kanban">
+                                <div class="o_kanban_image">
+                                    <t t-if="record.image.value">
+                                        <img t-att-src="kanban_image('op.haji', 'image', record.id.value)"/>
+                                    </t>
+                                    <t t-if="!record.image.value">
+                                        <img t-att-src='_s + "/base/static/src/img/avatar.png"'/>
+                                    </t>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <h4>
+                                        <a type="open">
+                                            <field name="name"/>
+                                            <t t-if="record.middle_name.raw_value">
+                                                <field name="middle_name"/>
+                                            </t>
+                                            
+                                        </a>
+                                    </h4>
+                                    <ul>
+                                        <li t-if="record.contact_address.raw_value">
+                                            <field name="contact_address"/>
+                                        </li>
+                                        <li t-if="record.phone.raw_value">
+                                            <field name="phone"/>
+                                        </li>
+                                        <li t-if="record.mobile.raw_value">
+                                            <field name="mobile"/>
+                                        </li>
+                                        <li t-if="record.email.raw_value">
+                                            <a t-attf-href="mailto:#{record.email.value}">
+                                                <field name="email"/>
+                                            </a>
+                                        </li>
+                                        <li t-if="record.lang.raw_value">
+                                            <field name="lang"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        
+         <record id="view_op_haji_tree" model="ir.ui.view">
+            <field name="name">op.haji.tree</field>
+            <field name="model">op.haji</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Haji">
+                    
+                    <field name="name"/>
+                    <field name="tracking_no" />
+                    <field name="mobile_no"/>
+                    <field name="emergency_contact"/>
+                    
+                    
+                </tree>
+            </field>
+        </record>
+
+           
+    
+        <record id="view_op_haji_form" model="ir.ui.view">
+            <field name="name">op.haji.form</field>
+            <field name="model">op.haji</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Haji">
+                                     
+                     <sheet>
+                     
+                     
+                        <div class="oe_title">
+                            <field name="already_partner"/>
+                            <label string="Already Partner"/>
+                            <field name="partner_id" placeholder="Partner" options="{'no_create_edit': True}"
+                                   attrs="{'required':[('already_partner','=',True)],'invisible': [('already_partner','=', False)]}"/>
+                        </div>
+                        <field name="image" widget="image" class="oe_left oe_avatar"/>
+                        <div class="oe_title">
+
+                            <h1>
+                                <div> 
+                              <field name="name" required="1" placeholder="Enter Name"/>
+                             </div>
+                            </h1>
+                        </div>
+                        <notebook colspan="4">
+                            <page name="personal_information"
+                                  string="Personal Information">
+                                <group col="4" colspan="4"
+                                       name="personal_detail">
+                                    <field name="gender" required="1"/>
+                                    <field name="birth_date" />
+                                    <field name="nationality"/>
+                                    <field name="visa_info"/>
+                                    <field name="lang"/>
+                                    <field name="blood_group"/>
+                                    <field name="category_id"/>
+                                    <field name="emergency_contact"
+                                           context="{'show_address': 1}"
+                                           options='{"always_reload": True}'/>
+                                    <field name="user_id" string="User" readonly="1"/>
+                                    <field name="email" />
+                                </group>
+                                <group string="Address Detail"
+                                       name="address">
+                                    <label for="type"/>
+                                    <div name="div_type">
+                                        <field class="oe_inline"
+                                               name="type"/>
+                                    </div>
+                                    <label for="street" string="Address"/>
+                                    <div name="div_address">
+                                        <field name="street"
+                                               placeholder="Street..."/>
+                                        <field name="street2"
+                                               placeholder="Street2"/>
+                                        <div class="address_format">
+                                            <field name="city"
+                                                   placeholder="City"
+                                                   style="width: 40%%"/>
+                                            <field name="state_id"
+                                                   class="oe_no_button"
+                                                   placeholder="State"
+                                                   style="width: 37%%"
+                                                   options='{"no_open": True}'/>
+                                            <field name="zip"
+                                                   placeholder="ZIP"
+                                                   style="width: 20%%"/>
+                                        </div>
+                                        <field name="country_id"
+                                               placeholder="Country" class="oe_no_button"
+                                               options='{"no_open": True}'/>
+                                    </div>
+                                </group>
+                            </page>
+                            
+                            <page name="Visa_information"
+                                  string="Visa Information">
+                                <group col="4" colspan="4"
+                                       name="Visa_detail">
+                                    <field name="tracking_no" />
+                                    <field name="hajj_yr" />
+                                    <field name="pid_no"/>
+                                    <field name="mobile_no"/>
+                                    <field name="pass_no"/>
+                                    <field name="nid_no"/>
+                                    <field name="guide_contact"/>
+                                    <field name="replacement_contact"/>
+                                    <field name="hajj_category"/>
+                                    <field name="docs"/>
+                                  
+                                   
+                                    
+                                    </group>
+                                    </page>
+                                 
+                                    
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        
+             
+      
+
+        
+         <record id="view_op_haji_search" model="ir.ui.view">
+            <field name="name">op.haji.search</field>
+            <field name="model">op.haji</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Haji">
+                    <field name="name"/>
+                    <field name="tracking_no"/>
+                    <field name="nid_no"/>
+                    <field name="pid_no"/>
+                    <field name="mobile_no"/>
+                    <field name="pass_no"/>
+                    <field name="blood_group"/>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                        <filter name="blood_group" string="Blood Group"
+                                domain="[]" context="{'group_by':'blood_group'}"/>
+                        <filter name="nationality" string="Nationality"
+                                domain="[]" context="{'group_by':'nationality'}"/>
+                        <filter name="language" string="Language"
+                                domain="[]" context="{'group_by':'lang'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        
+              <!-- window action -->
+       <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+
+
+     <record model="ir.actions.act_window" id="Hajj_list_action">
+           <field name="name">Haji Profile</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.haji</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="view_op_haji_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+     </record>
+     
+     <record model="ir.actions.act_window.view" id="act_open_op_haji_view_form">
+            <field name="act_window_id" ref="Hajj_list_action"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_op_haji_form"/>
+    </record>
+        
+     <record model="ir.actions.act_window.view" id="act_open_op_haji_view_tree">
+            <field name="act_window_id" ref="Hajj_list_action"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_op_haji_tree"/>
+    </record>
+    
+    <record model="ir.actions.act_window.view" id="act_open_op_haji_view_kanban">
+            <field name="act_window_id" ref="Hajj_list_action"/>
+            <field name="sequence" eval="5"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="kanban_view_hajj"/>
+    </record>
+
+
+                       <!-- top level menu: no parent -->                     
+
+       
+
+
+
+       </odoo> 
+       

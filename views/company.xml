@@ -1,0 +1,156 @@
+<odoo>
+  <data>
+                    <!--
+           Hajj Aviation view
+            
+        -->
+
+       <record model="ir.ui.view" id="company_form_view">
+            <field name="name">company.form</field>
+            <field name="model">hajj.company</field>
+            <field name="arch" type="xml">
+                <form string="Company Form">
+                    <sheet>
+                       <group col="4" colspan="4"
+                                       name="ticket_detail">
+                                       
+                           <field name="name"/>
+                           <field name="licence"/>
+                           <field name="start_date"/> 
+                           <field name="end_date"/>
+                           <field name="licence_nbr"/>
+                           
+                           
+                                </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+       
+        
+        <record model="ir.ui.view" id="company_search_view">
+            <field name="name">company.search</field>
+            <field name="model">hajj.company</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="licence_nbr"/>
+                           
+                    
+                </search>
+            </field>
+        </record>
+        
+         <record model="ir.ui.view" id="company_tree_view">
+            <field name="name">company.tree</field>
+            <field name="model">hajj.company</field>
+            <field name="arch" type="xml">
+                <tree string="Ticket Tree">
+                                       
+                           <field name="name"/>
+                           <field name="licence"/>
+                           <field name="start_date"/> 
+                           <field name="end_date"/>
+                           <field name="licence_nbr"/>
+                           
+                </tree>
+            </field>
+        </record>
+        
+        
+        
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+        <record model="ir.actions.act_window" id="company_list_action">
+            <field name="name">Companies</field>
+            <field name="res_model">hajj.company</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Put Your company information here
+                </p>
+            </field>
+        </record>
+        
+        
+         <!--
+           Civil Aviation view is below
+            
+        -->
+         
+        <record model="ir.ui.view" id="civil_form_view">
+            <field name="name">civil.form</field>
+            <field name="model">civil.company</field>
+            <field name="arch" type="xml">
+                <form string="Civil Form">
+                    <sheet>
+                       <group col="4" colspan="4"
+                                       name="ticket_detail">
+                                       
+                           <field name="name"/>
+                           <field name="licence"/>
+                           <field name="start_date"/> 
+                           <field name="end_date"/>
+                           <field name="licence_nbr"/>
+                           
+                           
+                                </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+       
+        
+        <record model="ir.ui.view" id="civil_search_view">
+            <field name="name">civil.search</field>
+            <field name="model">civil.company</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="licence_nbr"/>
+                           
+                    
+                </search>
+            </field>
+        </record>
+        
+         <record model="ir.ui.view" id="civil_tree_view">
+            <field name="name">civil.tree</field>
+            <field name="model">civil.company</field>
+            <field name="arch" type="xml">
+                <tree string="Ticket Tree">
+                                       
+                           <field name="name"/>
+                           <field name="licence"/>
+                           <field name="start_date"/> 
+                           <field name="end_date"/>
+                           <field name="licence_nbr"/>
+                           
+                </tree>
+            </field>
+        </record>
+        
+        
+        
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+        <record model="ir.actions.act_window" id="civil_list_action">
+            <field name="name">Companies</field>
+            <field name="res_model">civil.company</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Put Your company information here
+                </p>
+            </field>
+        </record>
+  </data>      
+</odoo>

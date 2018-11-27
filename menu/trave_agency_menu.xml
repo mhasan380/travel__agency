@@ -1,0 +1,54 @@
+
+<odoo>
+    <data>
+        <!-- Openeducat Menu -->
+        <menuitem id="main_travel_agency_menu" name="Travel Agency"
+            sequence="10" />
+
+
+        <menuitem id="Hajj_menu" name="Hajj Menu" parent="main_travel_agency_menu"
+            sequence="10" 
+          />
+     
+         <menuitem id="hajj_guide_profile_menu" name="Guide Profiles"
+            parent="Hajj_menu"  sequence="15" action="Guide_list_action"
+            /> 
+        <menuitem id="hajj_profile_menu" name="Haji Profiles"
+            parent="Hajj_menu" sequence="20" action="Hajj_list_action"
+            />
+           
+         <menuitem id="hajj_report" name="Hajj Report" action="action_hajj_report_wizard"
+            parent="main_travel_agency_menu" sequence="25"/>
+
+        <menuitem id="Umrah_menu" name="Umrah Menu"
+            parent="main_travel_agency_menu" sequence="30" 
+            /> 
+       
+       <menuitem id="Umrah_Profile_menu" name="Haji Profile"
+            parent="Umrah_menu" sequence="40" action="Umrah_list_action"
+            /> 
+         <menuitem id="Umrah_guide_menu" name="Umrah Guide"
+            parent="Umrah_menu" sequence="45" action="Um_Guide_list_action"
+            />  
+         <menuitem id="Ticket_main_menu" name="Ticket Menu"
+            parent="main_travel_agency_menu" sequence="50" 
+            />      
+         <menuitem id="Ticket_menu" name="Tickets"
+            parent="Ticket_main_menu" sequence="51" action="ticket_list_action"
+            />   
+         <menuitem id="soudi_menu" name="Saudi Info"
+            parent="main_travel_agency_menu" sequence="53" action="soudi_info_list_action"
+            />     
+            
+          <menuitem id="Company_menu" name="Company"
+            parent="main_travel_agency_menu" sequence="55" 
+            />    
+            <menuitem id="Company_hajj_menu" name="Hajj"
+            parent="Company_menu" sequence="60" action="company_list_action"
+            />  
+            
+           <menuitem id="Company_civil_menu" name="Civil Avaition"
+            parent="Company_menu" sequence="65" action="civil_list_action"
+            /> 
+    </data>
+</odoo>

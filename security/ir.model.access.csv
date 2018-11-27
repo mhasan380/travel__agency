@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_op_hajj_back_office,name_op_hajj_back_office,model_op_haji,group_op_back_office,1,1,1,1
+access_op_umrah_back_office,name_op_umrah_back_office,model_op_umrah,group_op_back_office,1,1,1,1
+access_op_guide_back_office,name_op_guide_back_office,model_op_guide,group_op_back_office,1,1,1,1
+access_op_ticket_back_office,name_op_ticket_back_office,model_op_ticket,group_op_back_office,1,1,1,1
+access_hajj_company_back_office,name_hajj_company_back_office,model_hajj_company,group_op_back_office,1,1,1,1
+access_civil_company_back_office,name_civil_company_back_office,model_civil_company,group_op_back_office,1,1,1,1
+access_umrah_guide_back_office,name_umrah_guide_back_office,model_umrah_guide,group_op_back_office,1,1,1,1
+access_soudi_info_back_office,name_soudi_info_back_office,model_soudi_info,group_op_back_office,1,1,1,1

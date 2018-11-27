@@ -1,0 +1,92 @@
+<odoo>
+       <record model="ir.ui.view" id="ticket_form_view">
+            <field name="name">ticket.form</field>
+            <field name="model">op.ticket</field>
+            <field name="arch" type="xml">
+                <form string="Ticket Form">
+                    <sheet>
+                       <group col="4" colspan="4"
+                                       name="ticket_detail">
+                           <field name="name"/>    
+                           <field name="mobile_no"/>
+                           <field name="gender"/> 
+                           <field name="route"/>
+                           <field name="ar_name"/>
+                           <field name="seller_id"/>
+                           <field name="ticket_no"/>
+                           <field name="fare"/>
+                           <field name="tax"/>
+                           <field name="total_bill"/>
+                           <field name="ita_bill"/>
+                           <field name="profit"/>
+                           <field name="payment_method"/>
+                           <field name="due"/>
+                           <field name="reference"/>
+                           <field name="period"/>
+                           <field name="ticket_date"/>
+                           <field name="pay_date"/>
+                                   
+                                </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+       
+        
+        <record model="ir.ui.view" id="ticket_search_view">
+            <field name="name">ticket.search</field>
+            <field name="model">op.ticket</field>
+            <field name="arch" type="xml">
+                <search>
+                   <field name="name"/>
+                    <field name="ticket_no"/>
+                    <field name="ticket_date"/>
+                </search>
+            </field>
+        </record>
+        
+         <record model="ir.ui.view" id="ticket_tree_view">
+            <field name="name">ticket.tree</field>
+            <field name="model">op.ticket</field>
+            <field name="arch" type="xml">
+                <tree string="Ticket Tree">
+                    <field name="ticket_date"/>
+                    <field name="ar_name"/>
+                    <field name="route"/>
+                    <field name="ticket_no"/>
+                    <field name="fare"/>
+                    <field name="tax"/>
+                    <field name="total_bill"/>
+                    <field name="ita_bill"/>
+                    <field name="profit"/>
+                    <field name="name"/>
+                    
+                    
+                    
+                    
+                </tree>
+            </field>
+        </record>
+        
+        
+        
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+        <record model="ir.actions.act_window" id="ticket_list_action">
+            <field name="name">Tickets</field>
+            <field name="res_model">op.ticket</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first course
+                </p>
+            </field>
+        </record>
+         
+       
+        
+</odoo>

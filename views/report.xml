@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <report
+            id="travel_haji"
+            model="op.haji"
+            string="Hajj Report"
+            name="travel__agency.report_haji"
+            file="travel__agency.report_haji"
+            report_type="qweb-html"/>
+
+<template id="report_haji">
+    <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+            <div class="page">
+				<div><span t-esc="hajis.birth_date"/></div>
+            </div>
+        </t>
+    </t>
+</template>
+
+<record id="hajj_report_view" model="ir.ui.view">
+    <field name="name">Hajj Report Wizard</field>
+    <field name="model">hajj.wizard</field>
+    <field name="arch" type="xml">
+       <form>
+            <group>
+            <field name="hajj_id"/>
+            </group>
+            <footer>
+                 <button string="Proceed" type="object"
+                            name="check_report" class="oe_highlight" />
+                        <button special="cancel" string="Close"
+                            type="object" />
+            </footer>
+
+       </form>
+    </field>
+</record>
+
+<record id="action_hajj_report_wizard" model="ir.actions.act_window">
+    <field name="name">Generate Hajj Report</field>
+    <field name="res_model">hajj.wizard</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="hajj_report_view"/>
+    <field name="target">new</field>
+</record>
+
+
+
+</data>
+</odoo>
+                        
